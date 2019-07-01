@@ -1,8 +1,5 @@
 # Dockerized Argos Simulator 
-### ARGoS Siulator Platform built by Carlo Pinciroli
-https://github.com/ilpincy/argos3
-### CPFA algorithm designed by the Moses Biological Computation Laboratory at the University of New Mexico 
-https://github.com/BCLab-UNM/CPFA-ARGoS
+
 
 ## Install docker on your system (not tested with Windows)
 Follow these instructions to install Docker on your system
@@ -41,3 +38,8 @@ docker run --rm -v $PWD/scripts:/scripts -it dbitz/argos-cpfa:v1 bash \
 -PrintFinalScore 1"
 ```
 
+
+### ARGoS Simulator built by Carlo Pinciroli
+https://github.com/ilpincy/argos3
+### CPFA experiment by the Moses Biological Computation Laboratory, UNM
+https://github.com/BCLab-UNM/CPFA-ARGoS
