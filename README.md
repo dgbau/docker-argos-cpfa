@@ -15,5 +15,21 @@ run the following command:
 ```docker pull dbitz/argos-cpfa:v1```
 
 ## To Run the image:
-
+This is an example for a container execution. the --rm flag will remove the container after execution is complete.
 ### Setting params
+A listing of accepted parameter ranges coming soon..
+### Running Container
+```bash
+docker run --rm -v $PWD/scripts:/scripts -it dbitz/argos-cpfa:v1 bash \
+-c "python3 /scripts/runner.py \
+-ProbabilityOfSwitchingToSearching 0.40 \
+-ProbabilityOfReturningToNest 0.02 \
+-UninformedSearchVariation 6.0 \
+-RateOfInformedSearchDecay 0.58 \
+-RateOfSiteFidelity 4.0 \
+-RateOfLayingPheromone 3.5 \
+-RateOfPheromoneDecay 0.08 \
+-FoodDistribution 0 \
+-PrintFinalScore 1"
+```
+
