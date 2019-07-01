@@ -1,4 +1,6 @@
-# Dockerized Argos Sim
+# Dockerized Argos Simulator for the CPFA algorithm designed by the Moses Computation Lab at UNM
+https://github.com/BCLab-UNM/CPFA-ARGoS
+
 ## Install docker on your system (not tested with Windows)
 Follow these instructions to install Docker on your system
 https://docs.docker.com/install/
