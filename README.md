@@ -1,11 +1,11 @@
-# Dockerized Argos Simulator 
+# Dockerized ARGoS Simulator 
 
 
 ## Install docker on your system (not tested with Windows)
 Follow these instructions to install Docker on your system
 https://docs.docker.com/install/
 
-## To pull from Docker Hub (Reccomended Method)
+## To pull from Docker Hub (Recommended Method)
 run the following command:
 ```docker pull dbitz/argos-cpfa:v1```
 
