@@ -8,11 +8,11 @@ https://docs.docker.com/install/
 #### Download the .deb for ARGoS here:
 https://drive.google.com/file/d/1VGDogC8tBipOv2kykJH4hsckXoBRKmFa/view
 #### place the .deb in the repo root, and run
-'''docker build -t <choose-name>:<choose-tag> .'''
+```docker build -t <choose-name>:<choose-tag> .```
 
 ## To pull from Docker Hub
 run the following command:
-'''docker pull dbitz/argos-cpfa:v1'''
+```docker pull dbitz/argos-cpfa:v1```
 
 ## To Run the image:
 
