@@ -1,0 +1,52 @@
+export MODEL_DIR=argoscpfa_hptuning_model_$(date +%Y%m%d_%H%M%S)
+export REGION=us-central1
+export JOB_NAME=argoscpfa_job_hptuning_$(date +%Y%m%d_%H%M%S)
+
+# Creates a YAML file with job request.
+cat > config.yaml <<EOF
+trainingInput:
+  hyperparameters:
+    goal: MAXIMIZE
+    hyperparameterMetricTag: "fitness_score"
+    maxTrials: 20
+    maxParallelTrials: 5
+    enableTrialEarlyStopping: True
+    params:
+    - parameterName: ProbabilityOfSwitchingToSearching
+      type: DOUBLE
+      minValue: 0.0001
+      maxValue: 0.1
+    - parameterName: ProbabilityOfReturningToNest
+      type: DOUBLE
+      minValue: 0.2
+      maxValue: 0.8
+    - parameterName: UninformedSearchVariation
+      type: DOUBLE
+      minValue: 0.2
+      maxValue: 0.8
+    - parameterName: RateOfInformedSearchDecay
+      type: DOUBLE
+      minValue: 0.2
+      maxValue: 0.8
+    - parameterName: RateOfSiteFidelity
+      type: DOUBLE
+      minValue: 0.2
+      maxValue: 0.8
+    - parameterName: RateOfLayingPheromone
+      type: DOUBLE
+      minValue: 0.2
+      maxValue: 0.8
+    - parameterName: RateOfPheromoneDecay
+      type: DOUBLE
+      minValue: 0.2
+      maxValue: 0.8
+    - parameterName: FoodDistribution
+      type: DOUBLE
+      minValue: 0.2
+      maxValue: 0.8
+    - parameterName: ProbabilityOfReturningToNest
+      type: DOUBLE
+      minValue: 0.2
+      maxValue: 0.8
+      
+EOF
