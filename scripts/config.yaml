@@ -1,52 +1,43 @@
-export MODEL_DIR=argoscpfa_hptuning_model_$(date +%Y%m%d_%H%M%S)
-export REGION=us-central1
-export JOB_NAME=argoscpfa_job_hptuning_$(date +%Y%m%d_%H%M%S)
-
-# Creates a YAML file with job request.
-cat > config.yaml <<EOF
 trainingInput:
   hyperparameters:
     goal: MAXIMIZE
     hyperparameterMetricTag: "fitness_score"
-    maxTrials: 20
-    maxParallelTrials: 5
+    maxTrials: 1000
+    maxParallelTrials: 10
     enableTrialEarlyStopping: True
     params:
     - parameterName: ProbabilityOfSwitchingToSearching
       type: DOUBLE
-      minValue: 0.0001
-      maxValue: 0.1
+      minValue: 0.0
+      maxValue: 1.0
+      scaleType: UNIT_LINEAR_SCALE
     - parameterName: ProbabilityOfReturningToNest
       type: DOUBLE
-      minValue: 0.2
-      maxValue: 0.8
+      minValue: 0.0
+      maxValue: 1.0
+      scaleType: UNIT_LINEAR_SCALE
     - parameterName: UninformedSearchVariation
       type: DOUBLE
-      minValue: 0.2
-      maxValue: 0.8
+      minValue: 0.0
+      maxValue: 12.56637
+      scaleType: UNIT_LINEAR_SCALE
     - parameterName: RateOfInformedSearchDecay
       type: DOUBLE
-      minValue: 0.2
-      maxValue: 0.8
+      minValue: 0.0
+      maxValue: 148.41315
+      scaleType: UNIT_LINEAR_SCALE
     - parameterName: RateOfSiteFidelity
       type: DOUBLE
-      minValue: 0.2
-      maxValue: 0.8
+      minValue: 0.0
+      maxValue: 20.0
+      scaleType: UNIT_LINEAR_SCALE
     - parameterName: RateOfLayingPheromone
       type: DOUBLE
-      minValue: 0.2
-      maxValue: 0.8
+      minValue: 0.0
+      maxValue: 20.0
+      scaleType: UNIT_LINEAR_SCALE
     - parameterName: RateOfPheromoneDecay
       type: DOUBLE
-      minValue: 0.2
-      maxValue: 0.8
-    - parameterName: FoodDistribution
-      type: DOUBLE
-      minValue: 0.2
-      maxValue: 0.8
-    - parameterName: ProbabilityOfReturningToNest
-      type: DOUBLE
-      minValue: 0.2
-      maxValue: 0.8
-      
-EOF
+      minValue: 0.0
+      maxValue: 22026.46579
+      scaleType: UNIT_LINEAR_SCALE
