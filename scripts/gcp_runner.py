@@ -15,11 +15,11 @@ def run_trial(args):
 
     # Set args in XML foe and rewrite
     for arg in vars(args):
-        print("{} {}".format(arg, getattr(args, arg)))
+        # print("{} {}".format(arg, getattr(args, arg)))
         cpfa_params.set(arg, str(getattr(args, arg)))
         if (arg == 'FoodDistribution'): 
             if (args.randomFoodDist == 1):  
-                print('randomizing food distribution')              
+                # print('randomizing food distribution')              
                 cpfa_settings.set(arg, str(random.randint(0, 2)))
             else:
                 cpfa_settings.set(arg, str(getattr(args, arg)))

@@ -1,0 +1,43 @@
+trainingInput:
+  hyperparameters:
+    goal: MAXIMIZE
+    hyperparameterMetricTag: "fitness_score"
+    maxTrials: 1000
+    maxParallelTrials: 10
+    enableTrialEarlyStopping: True
+    params:
+    - parameterName: ProbabilityOfSwitchingToSearching
+      type: DOUBLE
+      minValue: 0.3
+      maxValue: 0.8
+      scaleType: UNIT_LINEAR_SCALE
+    - parameterName: ProbabilityOfReturningToNest
+      type: DOUBLE
+      minValue: 0.0
+      maxValue: 0.0020
+      scaleType: UNIT_LINEAR_SCALE
+    - parameterName: UninformedSearchVariation
+      type: DOUBLE
+      minValue: 0.0
+      maxValue: 8
+      scaleType: UNIT_LINEAR_SCALE
+    - parameterName: RateOfInformedSearchDecay
+      type: DOUBLE
+      minValue: 0.0
+      maxValue: 148.41315
+      scaleType: UNIT_LINEAR_SCALE
+    - parameterName: RateOfSiteFidelity
+      type: DOUBLE
+      minValue: 0.0
+      maxValue: 10.0
+      scaleType: UNIT_LINEAR_SCALE
+    - parameterName: RateOfLayingPheromone
+      type: DOUBLE
+      minValue: 0.0
+      maxValue: 10.0
+      scaleType: UNIT_LINEAR_SCALE
+    - parameterName: RateOfPheromoneDecay
+      type: DOUBLE
+      minValue: 0.0
+      maxValue: 22026.46579
+      scaleType: UNIT_LINEAR_SCALE

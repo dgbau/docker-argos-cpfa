@@ -1,0 +1,31 @@
+PROJECT_ID=$(gcloud config list project --format "value(core.project)")
+BUCKET_NAME=${PROJECT_ID}-mlengine
+
+REGION=us-central1
+
+export IMAGE_REPO_NAME=argos_cpfa_custom_test
+export IMAGE_TAG=argos_cpfa_test2
+export IMAGE_URI=gcr.io/$PROJECT_ID/$IMAGE_REPO_NAME:$IMAGE_TAG
+
+
+export MODEL_DIR=cpfa_model_$(date +%Y%m%d_%H%M%S)
+export REGION=us-central1
+export JOB_NAME=cpfa_job_$(date +%Y%m%d_%H%M%S)
+
+gcloud beta ai-platform jobs submit training $JOB_NAME \
+  --region $REGION \
+  --master-image-uri $IMAGE_URI \
+  -- \
+  --model-dir=gs://$BUCKET_NAME/$MODEL_DIR \
+  --epochs=10
+
+gcloud beta ai-platform jobs submit training $JOB_NAME \
+  --scale-tier BASIC \
+  --region $REGION \
+  --master-image-uri $IMAGE_URI \
+  --config config.yaml   --  --epochs=1 --trialsPerTest=30
+
+
+
+  trial 30x yaml1 gcloud ai-platform jobs stream-logs cpfa_job_20190717_113434
+  trial 30x yaml2 gcloud ai-platform jobs stream-logs cpfa_job_20190717_114403

@@ -6,12 +6,16 @@ import hypertune
 import gcp_runner
 
 def test(args, epoch):
+    print(args.trialsPerTest)
     fitness_score = 0
+    for arg in vars(args):
+        print("{} {}".format(arg, getattr(args, arg)))
     for trial in range(1, args.trialsPerTest + 1):
         trial_score = gcp_runner.run_trial(args)
         fitness_score += trial_score
     fitness_score /= args.trialsPerTest
-    print(fitness_score)
+    # print(fitness_score)
+    
     print('Fitness Score -> {}\n'.format(fitness_score))
     hpt = hypertune.HyperTune()
     hpt.report_hyperparameter_tuning_metric(
