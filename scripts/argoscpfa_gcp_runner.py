@@ -6,7 +6,6 @@ import hypertune
 import gcp_runner
 
 def test(args, epoch):
-    print(args.trialsPerTest)
     fitness_score = 0
     for arg in vars(args):
         print("{} {}".format(arg, getattr(args, arg)))
@@ -14,7 +13,6 @@ def test(args, epoch):
         trial_score = gcp_runner.run_trial(args)
         fitness_score += trial_score
     fitness_score /= args.trialsPerTest
-    # print(fitness_score)
     
     print('Fitness Score -> {}\n'.format(fitness_score))
     hpt = hypertune.HyperTune()
@@ -68,7 +66,7 @@ def get_args():
     parser.add_argument(
         '--randomFoodDist',
         type=int,
-        default=1)
+        default=0)
     parser.add_argument(
         '--trialsPerTest',
         type=int,

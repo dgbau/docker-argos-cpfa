@@ -3,7 +3,8 @@ import xml.etree.ElementTree as ET
 
 def run_trial(args):
     # Copy example XML file to temp 
-    os.system('cp /CPFA-ARGoS/experiments/CPFAExample.xml /CPFA-ARGoS/experiments/CPFARunner.xml')
+    os.system('cp /CPFA-ARGoS/experiments/CPFAExample.xml \
+        /CPFA-ARGoS/experiments/CPFARunner.xml')
 
     # Read and parse XML, extract needed experiment constants
     tree = ET.parse('/CPFA-ARGoS/experiments/CPFARunner.xml')
@@ -13,7 +14,7 @@ def run_trial(args):
     foodCount = int(root.find('loop_functions').find('settings').attrib['FoodItemCount'])
     maxSimTime = int(root.find('loop_functions').find('settings').attrib['MaxSimTimeInSeconds'])
 
-    # Set args in XML foe and rewrite
+    # Set args in XML and rewrite
     for arg in vars(args):
         # print("{} {}".format(arg, getattr(args, arg)))
         cpfa_params.set(arg, str(getattr(args, arg)))
