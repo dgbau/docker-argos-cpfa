@@ -52,9 +52,11 @@ os.remove(fp.name)
 
 # Print score and score/foodCount to stdout, write score to file
 print(score, score/foodCount)
-f = open("/scripts/score_{}.txt".format(datetime.datetime.now().microsecond), "w")
-f.write("{}\n".format(str(score)))
-f.write("{}\n".format(str(score/foodCount)))
-for arg in vars(args):
-    f.write("{}, {}\n".format(arg, getattr(args, arg)))
-f.close()
+# f = open("/scripts/score_{}.txt".format(datetime.datetime.now().microsecond), "w")
+ft = open("/scripts/score_tally.txt", "a")
+# f.write("{}\n".format(str(score)))
+ft.write("{} {}\n".format(str(score), str(score/foodCount)))
+# for arg in vars(args):
+#     f.write("{}, {}\n".format(arg, getattr(args, arg)))
+# f.close()
+ft.close()
