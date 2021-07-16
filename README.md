@@ -11,8 +11,8 @@ run the following command:
 
 ## To Build from Dockerfile (if you want to modify the container)
 ### Clone this repo
-#### Download the .deb for ARGoS here:
-https://drive.google.com/file/d/1VGDogC8tBipOv2kykJH4hsckXoBRKmFa/view
+#### Download the .deb for ARGoS beta53 here:
+https://drive.google.com/file/d/1BGXLdU1pVjgg127zh6OETX5l-iWFJxEp/view
 #### place the .deb in the repo root, and run
 ```docker build -t <choose-name>:<choose-tag> .```
 
